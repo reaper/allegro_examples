@@ -1,0 +1,10 @@
+import os
+import platform
+
+env = Environment()
+opt = env.Clone(CXX='clang++', CCFLAGS=['-g', '-O3', '-Wall'], CXXFLAGS="-std=c++11")
+
+libs = ['allegro', 'allegro_image', 'allegro_dialog']
+
+# Build the program
+main = opt.Program(target = "bin/main", source = [Glob('**/*.cpp')], LIBS = libs)
